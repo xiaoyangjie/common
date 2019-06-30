@@ -16,6 +16,7 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <cn.afterturn.version>4.1.0</cn.afterturn.version>
     </properties>
 
     <dependencies>
@@ -24,12 +25,20 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/cn.afterturn/easypoi -->
         <dependency>
             <groupId>cn.afterturn</groupId>
-            <artifactId>easypoi</artifactId>
-            <version>4.1.0</version>
-            <type>pom</type>
+            <artifactId>easypoi-base</artifactId>
+            <version>${cn.afterturn.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.afterturn</groupId>
+            <artifactId>easypoi-web</artifactId>
+            <version>${cn.afterturn.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.afterturn</groupId>
+            <artifactId>easypoi-annotation</artifactId>
+            <version>${cn.afterturn.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/net.dongliu/commons -->
@@ -44,6 +53,7 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
