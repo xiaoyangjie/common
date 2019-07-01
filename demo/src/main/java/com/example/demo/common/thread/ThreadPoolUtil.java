@@ -22,7 +22,7 @@ public class ThreadPoolUtil {
     public void init() {
         ThreadFactory threadFactory = new ThreadFactoryBuilder().setDaemon(true).setNameFormat("demo-pool-%d").build();
         pool = new ThreadPoolExecutor(corePoolSize, maximumPoolSize, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingDeque<>(capaticy),
-                threadFactory, new ThreadPoolExecutor.DiscardPolicy());
+                threadFactory, new ThreadPoolExecutor.CallerRunsPolicy());
     }
 
     @PreDestroy
