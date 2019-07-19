@@ -19,6 +19,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Component
 public class TaskManager
 {
+
 	private static final String CONFIG_PATH =
 			System.getProperty("user.dir") + File.separator + "config" + File.separator
 					+ "thread-pool-config.properties";
@@ -32,6 +33,7 @@ public class TaskManager
 	public TaskManager()
 	{
 		super();
+
 		poolConfig = new TaskThreadPoolConfig();
 		initTaskPool();
 	}

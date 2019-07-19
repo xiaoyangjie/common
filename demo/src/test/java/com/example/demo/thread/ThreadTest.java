@@ -14,6 +14,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
+import java.lang.reflect.AccessibleObject;
+import java.lang.reflect.Field;
+import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 
 @RunWith(SpringRunner.class)
@@ -30,23 +33,22 @@ public class ThreadTest {
 
     @Test
     public void test() {
-        ExecutorService pool  =  threadPoolUtil.getPool();
 
-        ThreadPoolJob threadPoolJob;
-        for (int i = 0; i < 100; i++) {
-            threadPoolJob = new ThreadPoolJob();
-            LOGGER.info("========{}", i);
-            pool.execute(threadPoolJob);
-            LOGGER.info("========{}=========", i);
-        }
+        ThreadLocal<Integer> local = new ThreadLocal<>();
+        ThreadLocal<Integer> local1 = new ThreadLocal<>();
+
+        Thread t = Thread.currentThread();
+        local.get();
+        local.set(new Integer(1111));
+        System.gc();
+        local1.set(333);
+        System.out.println(111);
 
     }
 
     @Test
     public void test1() {
-        ResponseEntity<A> entity;
-        entity = restTemplate.getForEntity("http://127.0.0.1:8080/test", A.class);
-        System.out.println(entity);
+
     }
 
 

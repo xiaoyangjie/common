@@ -9,10 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class DemoController {
 
     @GetMapping("/test")
-    public A test() {
-        A<B> a = new A<>();
-        a.setB(new B());
-        return a;
+    public void test() {
+
     }
 
 

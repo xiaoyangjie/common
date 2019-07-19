@@ -4,17 +4,25 @@ import lombok.Data;
 import org.apache.poi.ss.formula.functions.T;
 
 @Data
-public class A <T> {
-    private T b;
+public class A implements Comparable {
+
+    private Integer count;
+
+    private Integer count1;
 
     private String a = "1";
 
-    public T getB() {
-        return b;
+    public A(Integer count) {
+        this.count = count;
     }
 
-    public void setB(T b) {
-        this.b = b;
+    public Integer getCount() {
+        return count;
+    }
+
+
+    public void setCount(Integer count) {
+        this.count = count;
     }
 
     public String getA() {
@@ -23,5 +31,11 @@ public class A <T> {
 
     public void setA(String a) {
         this.a = a;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        A test = (A)o;
+        return test.getCount() - this.count ;
     }
 }
