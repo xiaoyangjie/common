@@ -3,7 +3,7 @@ package com.example.demo.common.util;
 import com.alibaba.fastjson.TypeReference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+import org.springframework.util.ClassUtils;
 import java.util.Objects;
 import com.alibaba.fastjson.JSON;
 
@@ -21,11 +21,17 @@ public class GenericConvertUtil {
     private GenericConvertUtil() {
     }
 
-    public static <T> T genericString2Class(String str, T clazz) {
+    public static <T> T genericString2Class(String str) {
         if (Objects.isNull(str)) {
             return null;
         }
-        JSON.parseObject(str, new TypeReference<T>(){});
+        T temp = null;
+        try {
+            temp = JSON.parseObject(str, new TypeReference<T>(){});
+        } catch (Exception e) {
+            LOGGER.error("解析失败");
+        }
+        return temp;
     }
 
 }

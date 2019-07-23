@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.common.util.GenericConvertUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,7 +16,9 @@ public class DemoApplicationTests {
 
     @Test
     public void test1() {
-        System.out.println("1111111");
+        Integer a = GenericConvertUtil.genericString2Class("1");
+        Double b = GenericConvertUtil.genericString2Class("1.0");
+        System.out.println(a);
     }
 
 }

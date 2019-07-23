@@ -16,7 +16,10 @@ import org.springframework.web.client.RestTemplate;
 import javax.annotation.Resource;
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 
 @RunWith(SpringRunner.class)
@@ -48,7 +51,14 @@ public class ThreadTest {
 
     @Test
     public void test1() {
+        String base = "String";
+        for (int i=0;i< Integer.MAX_VALUE;i++){
+            String str = base + base;
+            System.out.println(str.length());
+            base = str.intern();
+            System.gc();
 
+        }
     }
 
 
