@@ -16,9 +16,9 @@ public class DemoApplicationTests {
 
     @Test
     public void test1() {
-        Integer a = GenericConvertUtil.genericString2Class("1");
-        Double b = GenericConvertUtil.genericString2Class("1.0");
-        System.out.println(a);
+        String s3 = new String("1") + new String("1");
+        System.out.println(s3 == s3.intern());
+        System.out.println(1111);
     }
 
 }
